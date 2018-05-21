@@ -13,5 +13,9 @@ namespace CorsoWpf.AsteroidRusset.WpfApp
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+
+        }
     }
 }

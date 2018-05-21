@@ -24,5 +24,15 @@ namespace CorsoWpf.AsteroidRusset.WpfApp
         {
             InitializeComponent();
         }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void txtCurrentUser_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var device = e.Device;
+        }
     }
 }

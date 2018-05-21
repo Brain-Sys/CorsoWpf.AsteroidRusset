@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CorsoWpf.AsteroidRusset.WpfApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Background="LightCoral"
+        Title="Asteroid Russet (v.1.0 alpha)" Height="450" Width="800">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Asteroid Russet (v1.0 alpha)" FontSize="24" />
+
+        <!-- bottone di chiusura -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="btnClose" Click="btnClose_Click"
+                Content="Chiudi" Height="40" Margin="4,4,4,4" MinWidth="80" />
+            <Button x:Name="btnLogout" Content="Logout" Height="40" Margin="0,4,4,4" MinWidth="80" />
+        </StackPanel>
+
+        <DockPanel Grid.Row="1" LastChildFill="True">
+            <Button Content="Aggiorna" DockPanel.Dock="Right" />
+            <Button Content="Salva" DockPanel.Dock="Right" />
+            <Slider DockPanel.Dock="Bottom" Margin="16" Minimum="1" Maximum="2000" />
+            <ListBox DockPanel.Dock="Left"  MinWidth="100" />
+        </DockPanel>
+
+        <!-- Status Bar -->
+        <TextBlock x:Name="txtCurrentTime" Text="lunedì, 11:05" Grid.Row="2" />
+        <TextBlock x:Name="txtCurrentUser" Text="igor.damiani" Grid.Row="2" HorizontalAlignment="Right" Background="#FF9CE45F" Foreground="#FF182AD8" Padding="20,4" MouseLeftButtonDown="txtCurrentUser_MouseLeftButtonDown" />
+
     </Grid>
 </Window>

@@ -34,5 +34,20 @@ namespace CorsoWpf.AsteroidRusset.WpfApp
         {
             var device = e.Device;
         }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            this.btnUpdate.IsEnabled = !this.btnUpdate.IsEnabled;
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Logout ?");
+        }
+
+        private void setValue_Click(object sender, RoutedEventArgs e)
+        {
+            this.lstNumbers.Items.Add(DateTime.Now.Millisecond);
+        }
     }
 }

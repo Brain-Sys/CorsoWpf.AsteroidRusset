@@ -15,18 +15,62 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Asteroid Russet (v1.0 alpha)" FontSize="24" />
 
-        <!-- bottone di chiusura -->
+        <!-- toolbar in alto a destra -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <ToggleButton Content="Attiva" MinWidth="80" Cursor="Hand"
+                          Margin="4" IsChecked="True" ToolTip="Accendi/spegni l'opzione" />
+            <RepeatButton Content="Imposta" MinWidth="80" Delay="1000" Cursor="Hand"
+                          Interval="200" x:Name="setValue" Click="setValue_Click" Margin="0,4,4,4" />
+
+
             <Button x:Name="btnClose" Click="btnClose_Click"
-                Content="Chiudi" Height="40" Margin="4,4,4,4" MinWidth="80" />
-            <Button x:Name="btnLogout" Content="Logout" Height="40" Margin="0,4,4,4" MinWidth="80" />
+                Content="Chiudi" Height="40" Margin="0,4,4,4" MinWidth="80"
+                    ToolTipService.ShowOnDisabled="True" IsEnabled="False">
+                <Button.ToolTip>
+                    <Grid>
+                        <Image Source="/Images/Piazza.jpg" />
+                        <TextBlock Foreground="White" FontSize="24" Text="Catania" />
+                    </Grid>
+                </Button.ToolTip>
+            </Button>
+
+
+
+            <Button x:Name="btnLogout" Height="40" Margin="0,4,4,4" MinWidth="80" Click="btnLogout_Click">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal">
+                        <Border Width="16" Height="16" Background="Red" />
+                        <CheckBox Margin="8,0,0,0" Checked="CheckBox_Checked" />
+                        <TextBlock Text="Logout" Margin="8,0,0,0" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
         </StackPanel>
 
         <DockPanel Grid.Row="1" LastChildFill="True">
-            <Button Content="Aggiorna" DockPanel.Dock="Right" />
+            <Button x:Name="btnUpdate" Content="Aggiorna" DockPanel.Dock="Right" />
             <Button Content="Salva" DockPanel.Dock="Right" />
-            <Slider DockPanel.Dock="Bottom" Margin="16" Minimum="1" Maximum="2000" />
-            <ListBox DockPanel.Dock="Left"  MinWidth="100" />
+            <Slider DockPanel.Dock="Bottom" Margin="4" Minimum="1" Maximum="2000" />
+
+            <StackPanel Orientation="Horizontal" Margin="4" DockPanel.Dock="Bottom">
+                <RadioButton Content="A1" GroupName="gruppo1" />
+                <RadioButton Content="A2" GroupName="gruppo1" />
+                <RadioButton Content="A3" GroupName="gruppo1" />
+
+                <RadioButton Margin="100,0,0,0" Content="B1" GroupName="gruppo2" />
+                <RadioButton Content="B2" GroupName="gruppo2" />
+                <RadioButton GroupName="gruppo2">
+                    <RadioButton.Content>
+                        <TextBlock>
+                            <Run Text="B3" />
+                            <Run Text="(qualcosa)" FontSize="8" Foreground="Red" />
+                            <Run Text="questo testo qui è" FontFamily="Verdana" />
+                        </TextBlock>
+                    </RadioButton.Content>
+                </RadioButton>
+            </StackPanel>
+            
+            <ListBox x:Name="lstNumbers" DockPanel.Dock="Left"  MinWidth="100" />
         </DockPanel>
 
         <!-- Status Bar -->
